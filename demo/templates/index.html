@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<title>Seedme 2</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"/>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		.container {
+		    display: flex;           /* establish flex container */
+		    flex-direction: column;  /* make main axis vertical */
+		    justify-content: center; /* center items vertically, in this case */
+		    align-items: center;     /* center items horizontally, in this case */
+		    height: 300px;
+		}
+		
+		.box {
+		    margin: 5px;
+		    text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="box">
+			<form action="" method="get">
+			  <button name="action" type="submit" class="btn btn-success" value="start">Start</button>
+			  <button name="action" type="submit" class="btn btn-danger" value="stop">Destroy</button>
+			</form>
+		</div>
+		<div class="box">
+			<p>Started container: <a target="_blank" href="http://localhost:{{port}}">{{running_container}}</a></p>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -25,7 +25,7 @@ SECRET_KEY = 'o+f^!1nnd_rg4#wj$m65q4r**l4^fhmzvq_kzo3_47395zi$!u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["seedmini4.sdsc.edu"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'demo',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CONTAINER_EXPIRATION = 2*24*60*60 # 2 days

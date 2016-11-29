@@ -5,8 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<title>Seedme 2</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"/>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"/>
 	<style type="text/css">
 		.container {
 		    display: flex;           /* establish flex container */
@@ -26,15 +25,27 @@
 <body>
 	<div class="container">
 		<div class="box">
-			<form action="" method="get">
+			<form action="" method="post">
 			  <button name="action" type="submit" class="btn btn-success" value="start">Start</button>
 			  <button name="action" type="submit" class="btn btn-danger" value="stop">Destroy</button>
+			  {% csrf_token %}
 			</form>
 		</div>
 		<div class="box">
-			<p>Started container: <a target="_blank" href="http://localhost:{{port}}">{{running_container}}</a></p>
+			<p>Started instance: <a target="_blank" href="http://{{running_container}}.{{request.get_host}}">{{running_container}}</a></p>
+			<div id="good_until"></div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function showInterval() {
+			var expiration = {{expiration}};
+			if(expiration)
+				document.getElementById("good_until").innerHTML = 
+					"Your instance expires "+moment(expiration).fromNow();
+		}
+		showInterval();
+		window.setInterval(showInterval, 1000);
+	</script>
 </body>
 
 </html>

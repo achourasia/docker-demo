@@ -51,6 +51,7 @@ def index(request):
                 pass
             del request.session['container_name']
             del request.session['container_exp']
+            container_name = None
 
     return render(request, 'templates/index.html', {
         'running_container': container_name,

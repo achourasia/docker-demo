@@ -20,10 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o+f^!1nnd_rg4#wj$m65q4r**l4^fhmzvq_kzo3_47395zi$!u'
+with open('/etc/django_secretkey.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["seedmini4.sdsc.edu"]
 
@@ -120,4 +121,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CONTAINER_EXPIRATION = 2*24*60*60 # 2 days
+CONTAINER_EXPIRATION = 7*24*60*60 # 2 days

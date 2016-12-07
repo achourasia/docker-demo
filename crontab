@@ -1,0 +1,2 @@
+* * * * * root /usr/local/bin/python /usr/src/app/manage.py clean_containers 
+

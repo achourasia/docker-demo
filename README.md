@@ -6,7 +6,7 @@
 
 ```docker build -t docker-demo .```
 
-- Build docker-demo image with django app
+- Build nginx proxy image
 
 ```pushd proxy && docker build -t nginx-proxy . && popd```
 

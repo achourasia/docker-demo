@@ -15,14 +15,15 @@ class Command(BaseCommand):
         sessions = Session.objects.all()
         for session in sessions:
             data = session.get_decoded()
-            if(data.get("container_id", None) and data.get("container_exp") < time.time()):
+            if(data.get("container_name", None) and data.get("container_exp") < time.time()):
                 container_id = data["container_id"]
                 try:
-                    cli.remove_container(
-                        container=container_id,
-                        force = True
-                    )
+                    #cli.remove_container(
+                    #    container=container_id,
+                    #    force = True
+                    #)
+                    pass
                 except:
                     pass
-                session.delete()
+                #session.delete()
                 self.stdout.write(self.style.SUCCESS('Successfully cleaned container %s'%container_id))

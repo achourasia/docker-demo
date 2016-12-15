@@ -53,6 +53,7 @@ def index(request):
             del request.session['container_exp']
             del request.session['password']
             container_name = None
+            password = None
 
     return render(request, 'templates/index.html', {
         'running_container': container_name,

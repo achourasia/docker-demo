@@ -1,6 +1,6 @@
 FROM drupal
 
-RUN apt-get update && apt-get install -y zip
+RUN apt-get update && apt-get install -y zip vim sqlite3
 
 RUN mkdir -p /usr/src/small_data && cd /usr/src/small_data \
             && curl -O http://dibbs.seedme.org/sites/dibbs.seedme.org/files/2016-09/small_data.v1.0.0.alpha_.zip \

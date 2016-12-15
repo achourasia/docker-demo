@@ -24,6 +24,9 @@
 
 <body>
 	<div class="container">
+		<div>
+			<a href="https://www.seedme.org"><img src="https://www.seedme.org/sites/seedme.org/files/seedme_transparent_0.png"></img></a>
+		</div>
 		<div class="box">
 			<form action="" method="post">
 			  <button name="action" type="submit" class="btn btn-success" value="start">Start</button>
@@ -34,6 +37,9 @@
 		<div class="box">
 			<p>Started instance: <a target="_blank" href="http://{{running_container}}.{{request.get_host}}">{{running_container}}</a></p>
 			<div id="good_until"></div>
+		</div>
+		<div>
+			Username: demo; Password: {{password}}
 		</div>
 	</div>
 	<script type="text/javascript">

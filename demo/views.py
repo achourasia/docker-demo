@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.views.decorators.csrf import csrf_exempt
-from docker import Client
+from docker import DockerClient
 from django.conf import settings
 import socket
 import time
@@ -18,42 +18,44 @@ def pick_unused_port():
 
 def index(request):
 
-    cli = Client(base_url='unix://var/run/docker.sock')
+    cli = DockerClient(base_url='unix://var/run/docker.sock')
 
     container_name = None
-
+    password = None
     if request.session.get('container_name', None):
         container_name = request.session['container_name']
+        password = request.session['password']
 
     if(request.POST.get('action',None)):
         if(request.POST['action'] == "start" and not container_name):
             port = pick_unused_port();
             container_name = namesgenerator.get_random_name()
-            container = cli.create_container(
-                image='seedme2', ports=[80],
+            container = cli.containers.run(
+                detach=True,
+                image='seedme2', ports={'80/tcp':port},
                 name=container_name,
-                environment = {"VIRTUAL_HOST":"%s.%s"%(container_name, request.get_host())},
-                host_config=cli.create_host_config(port_bindings={
-                    80: port,
-                })
+                environment = {"VIRTUAL_HOST":"%s.%s"%(container_name, request.get_host())}
             )
             request.session['container_name'] = container_name
             request.session['container_exp'] = time.time()+settings.CONTAINER_EXPIRATION
-            cli.start(container['Id'])
+            password = container.exec_run("/init.sh", detach=False)
+
+            request.session['password'] = password
 
         if(request.POST['action'] == "stop" and container_name):
             try:
-                cli.remove_container(
-                    container=container_name,
+                cli.containers.get(container_name).remove(
                     force = True
                 )
             except:
                 pass
             del request.session['container_name']
             del request.session['container_exp']
+            del request.session['password']
             container_name = None
 
     return render(request, 'templates/index.html', {
         'running_container': container_name,
-        'expiration': (request.session.get('container_exp') or 0)*1000
+        'expiration': (request.session.get('container_exp') or 0)*1000,
+        'password': "%s"%(password)
     }, content_type='application/xhtml+xml')

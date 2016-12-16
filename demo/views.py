@@ -29,12 +29,14 @@ def index(request):
     if(request.POST.get('action',None)):
         if(request.POST['action'] == "start" and not container_name):
             port = pick_unused_port();
-            container_name = namesgenerator.get_random_name()
+            container_name = namesgenerator.get_random_name("-")
             container = cli.containers.run(
                 detach=True,
                 image='seedme2', ports={'80/tcp':port},
                 name=container_name,
-                environment = {"VIRTUAL_HOST":"%s.%s"%(container_name, request.get_host())}
+                environment = {"VIRTUAL_HOST":"%s.%s"%(container_name, request.get_host()),
+                   "LETSENCRYPT_HOST":"%s.%s"%(container_name, request.get_host()),
+                   "LETSENCRYPT_EMAIL":"amit@sdsc.edu"}
             )
             request.session['container_name'] = container_name
             request.session['container_exp'] = time.time()+settings.CONTAINER_EXPIRATION

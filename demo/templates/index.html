@@ -25,7 +25,7 @@
 <body>
 	<div class="container">
 		<div>
-			<a href="https://www.seedme.org"><img src="https://www.seedme.org/sites/seedme.org/files/seedme_transparent_0.png"></img></a>
+			<a href="https://www.seedme.org"><img src="https://www.seedme.org/sites/seedme.org/files/seedme-building-blocks.png"></img></a>
 		</div>
 		<div class="box">
 			<form action="" method="post">
@@ -35,11 +35,15 @@
 			</form>
 		</div>
 		<div class="box">
-			<p>Started instance: <a target="_blank" href="https://{{running_container}}.{{request.get_host}}">{{running_container}}</a></p>
-			<div id="good_until"></div>
+			<p>Started instance: <a target="_blank" href="http://{{running_container}}.{{request.get_host}}">{{running_container}}</a></p>
 		</div>
 		<div>
-			Username: demo; Password: {{password}}
+			Username: demo
+			<br/>Password: {{password}}
+		</div>
+		<br/>
+		<div class="box">
+			<div id="good_until"></div>
 		</div>
 	</div>
 	<script type="text/javascript">

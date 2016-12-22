@@ -6,6 +6,8 @@ from django.conf import settings
 import socket
 import time
 import namesgenerator
+import os
+import datetime
 
 from django.http import HttpResponse
 
@@ -34,15 +36,18 @@ def index(request):
                 detach=True,
                 image='seedme2', ports={'80/tcp':port},
                 name=container_name,
-                environment = {"VIRTUAL_HOST":"%s.%s"%(container_name, request.get_host()),
-                   "LETSENCRYPT_HOST":"%s.%s"%(container_name, request.get_host()),
-                   "LETSENCRYPT_EMAIL":"amit@sdsc.edu"}
+                environment = {"VIRTUAL_HOST":"%s.%s"%(container_name, request.get_host())}
+                   #"LETSENCRYPT_HOST":"%s.%s"%(container_name, request.get_host()),
+                   #"LETSENCRYPT_EMAIL":"amit@sdsc.edu"}
             )
             request.session['container_name'] = container_name
             request.session['container_exp'] = time.time()+settings.CONTAINER_EXPIRATION
             password = container.exec_run("/init.sh", detach=False)
 
             request.session['password'] = password
+            if(os.path.exists(settings.STATS_DIR)):
+                with open('%s/%s.txt'%(settings.STATS_DIR, datetime.date.today()), 'a+') as f:
+                    f.write('%s\n'%container_name)
 
         if(request.POST['action'] == "stop" and container_name):
             try:

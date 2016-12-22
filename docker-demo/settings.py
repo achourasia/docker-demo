@@ -26,7 +26,7 @@ with open('/etc/django_secretkey.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["seedmini4.sdsc.edu"]
+ALLOWED_HOSTS = ["demo.seedme.org"]
 
 
 # Application definition
@@ -122,3 +122,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CONTAINER_EXPIRATION = 7*24*60*60 # 2 days
+STATS_DIR="/var/stats"

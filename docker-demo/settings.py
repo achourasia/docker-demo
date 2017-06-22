@@ -26,7 +26,7 @@ with open('/etc/django_secretkey.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["demo.seedme.org"]
+ALLOWED_HOSTS = ["try.seedme.org"]
 
 
 # Application definition

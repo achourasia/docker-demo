@@ -7,7 +7,8 @@
 
 import random
 
-left = ["happy", "jolly", "dreamy", "sad", "angry", "pensive", "focused", "sleepy", "grave", "distracted", "determined", "stoic", "stupefied", "sharp", "agitated", "cocky", "tender", "goofy", "furious", "desperate", "hopeful", "compassionate", "silly", "lonely", "condescending", "naughty", "kickass", "drunk", "boring", "nostalgic", "ecstatic", "insane", "cranky", "mad", "jovial", "sick", "hungry", "thirsty", "elegant", "backstabbing", "clever", "trusting", "loving", "suspicious", "berserk", "high", "romantic", "prickly", "evil"]
+# left = ["happy", "jolly", "dreamy", "sad", "angry", "pensive", "focused", "sleepy", "grave", "distracted", "determined", "stoic", "stupefied", "sharp", "agitated", "cocky", "tender", "goofy", "furious", "desperate", "hopeful", "compassionate", "silly", "lonely", "condescending", "naughty", "kickass", "drunk", "boring", "nostalgic", "ecstatic", "insane", "cranky", "mad", "jovial", "sick", "hungry", "thirsty", "elegant", "backstabbing", "clever", "trusting", "loving", "suspicious", "berserk", "high", "romantic", "prickly", "evil"]
+left = ["batman", "wolverine", "ironman", "spiderman", "superman", "thor", "flash", "storm", "superwoman", "hulk", "wonderwoman", "catwoman", "tigra", "jade", "captainamerica", "greenlantern", "elektra", "mystique", "xena", "blade", "greenarrow", "cyclops", "iceman", "raven", "venus", "robin", "rogue", "ghostrider", "scoobydoo", "batwoman", "aquaman", "hawkeye", "colossus", "xman", "zorro", "blackpanther", "magneto", "kinetix", "crystal", "blackknight", "firestorm", "halo", "dawn"]
 
 # Notable scientists and hackers.
 #

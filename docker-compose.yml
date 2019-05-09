@@ -1,0 +1,34 @@
+version: '3'
+
+networks:
+  seedme:
+    external: true
+
+services:
+
+  nginx-proxy:
+    build: ./nginx_proxy/
+    ports:
+    - "80:80"
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    restart: always
+    networks:
+    - seedme
+
+    depends_on:
+    - seedme2_django
+
+  seedme2_django:
+    build: .
+    restart: always
+    ports:
+    - "8000:8000"
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./stats:/var/stats
+    environment:
+      VIRTUAL_HOST: localhost
+      VIRTUAL_PORT: 8000
+    networks:
+    - seedme

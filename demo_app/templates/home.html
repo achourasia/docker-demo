@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container">
+        <div id="logo">
+            <img src="data:image/png;base64,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"/>
+        </div>
+
+        <div id="intro">
+            <h1>SeedMe's data sharing sandbox builder</h1>
+            <p>This page creates a <strong>free temporary website</strong>
+                with which you can safely try
+                <a href="http://dibbs.seedme.org/">SeedMe's data sharing modules</a> for Drupal 8.</p>
+
+            <p>How to build a sandbox website:</p>
+            <ol>
+                <li>Click the <strong>Create</strong> button below to create your site.</li>
+                <li>Write down the <em>demo</em> account password.</li>
+                <li>Click on the <strong>Sandbox website</strong> link below.</li>
+                <li>Log in with the <em>demo</em> account to try out data sharing.</li>
+                <li>Browse help info on the site.</li>
+            </ol>
+            <p>The sandbox will be automatically deleted after 7 days.</p>
+        </div>
+
+        <div id="buttons">
+            <form action="" method="post">
+                {% csrf_token %}
+                {% if running_container and password %}
+                    <button name="action" type="submit" class="btn btn-danger" value="stop">Destroy</button>
+                {% else %}
+                    <button name="action" type="submit" class="btn btn-success" value="start">Create</button>
+                {% endif %}
+
+            </form>
+        </div>
+
+        {% if running_container and password %}
+            <table id="web-site">
+                <tbody>
+                <tr>
+                    <td class="label">Sandbox website:</td>
+                    <td class="value"><a
+                            href="http://{{ running_container }}.{{ request.get_host }}">{{ running_container }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Username:</td>
+                    <td class="value">demo</td>
+                </tr>
+                <tr>
+                    <td class="label">Password:</td>
+                    <td class="value">{{ password }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="good_until_wrapper"><span id="good_until"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        {% endif %}
+
+        <p id="contact"><a href="http://dibbs.seedme.org/contact">Contact us with questions and feedback!</a></p>
+
+        <div id="nsf-notice">
+            This material is based upon work supported by the National Science Foundation
+            under Grant No. 1443083. Any opinions, findings, and conclusions or
+            recommendations expressed in this material are those of the author(s) and do
+            not necessarily reflect the views of the National Science Foundation.
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function showInterval() {
+            var expiration = {{expiration}};
+            if (expiration)
+                document.getElementById("good_until").innerHTML =
+                    "The sandbox will be automatically deleted in " + moment(expiration).fromNow();
+        }
+
+        showInterval();
+        window.setInterval(showInterval, 1000);
+    </script>
+
+{% endblock %}

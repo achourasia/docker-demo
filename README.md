@@ -13,7 +13,7 @@ Before running this step, make sure you already have a docker image called `seed
 
 `docker-compose up -d`
 
-Once the app is running, go to <a href="try.seedme.org" target="_blank">try.seedme.org</a> (and make sure that <a href="try.seedme.org" target="_blank">try.seedme.org</a> is added to your /etc/hosts file).
+Once the app is running, go to <a href="http://localhost" target="_blank">http://localhost</a>.
 
 #### 4. Stop the app
 `docker-compose down`

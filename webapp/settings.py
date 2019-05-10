@@ -122,7 +122,6 @@ DOCKER = {
     "SEEDME2_CONTAINER_IMAGE": "seedme2",  # The docker image name to start a new seedme2 container from
     "DOCKER_SOCKET_PATH": "unix://var/run/docker.sock",
     "NETWORK": "seedme",  # This should match the network name used in the docker compose file.,
-    "MYSQL_DB_IMAGE": "mysql:8"
 }
 
 ## Seedme2 settings

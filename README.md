@@ -11,7 +11,7 @@ A Django-based demo website for trying & testing the Seedme application.
 #### 3. Run the app
 Before running this step, make sure you already have a docker image called `seedme2`, which this sandbox application will use to spawn new seedme demo containers.
 
-`docker-compose up`
+`docker-compose up -d`
 
 Once the app is running, go to <a href="try.seedme.org" target="_blank">try.seedme.org</a> (and make sure that <a href="try.seedme.org" target="_blank">try.seedme.org</a> is added to your /etc/hosts file).
 
